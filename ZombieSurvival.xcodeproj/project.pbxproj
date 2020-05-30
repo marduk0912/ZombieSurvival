@@ -15,6 +15,7 @@
 		18CDAC942481C411000D7B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC922481C411000D7B32 /* Main.storyboard */; };
 		18CDAC962481C425000D7B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC952481C425000D7B32 /* Assets.xcassets */; };
 		18CDAC992481C426000D7B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC972481C426000D7B32 /* LaunchScreen.storyboard */; };
+		18CDACA12481D023000D7B32 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDACA02481D023000D7B32 /* MathUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		18CDAC952481C425000D7B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18CDAC982481C426000D7B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18CDAC9A2481C426000D7B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18CDACA02481D023000D7B32 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		18CDAC872481C411000D7B32 /* ZombieSurvival */ = {
 			isa = PBXGroup;
 			children = (
+				18CDACA02481D023000D7B32 /* MathUtils.swift */,
 				18CDAC882481C411000D7B32 /* AppDelegate.swift */,
 				18CDAC8A2481C411000D7B32 /* GameScene.sks */,
 				18CDAC8C2481C411000D7B32 /* Actions.sks */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18CDAC8F2481C411000D7B32 /* GameScene.swift in Sources */,
+				18CDACA12481D023000D7B32 /* MathUtils.swift in Sources */,
 				18CDAC912481C411000D7B32 /* GameViewController.swift in Sources */,
 				18CDAC892481C411000D7B32 /* AppDelegate.swift in Sources */,
 			);
