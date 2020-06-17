@@ -16,11 +16,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerSpeed: CGFloat = 200.0
     var lastTouchLocation = CGPoint.zero
     var zombies: [SKSpriteNode] = []
-    let zombieSpeed: CGFloat = 100.0
+    let zombieSpeed: CGFloat = 80.0
     var cantidadCorazones: [SKNode] = []
     var nodosLeft: Int = 0
-  
-    
+    var lastUpdatedTime: TimeInterval = 0
+    var dt: TimeInterval = 0
+    let playerPixelPerSecond: CGFloat = 200.0
+    var velocityPlayer = CGPoint.zero
+   
     
     override func didMove(to view: SKView) {
         
@@ -28,7 +31,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player = childNode(withName: "player") as! SKSpriteNode
         corazon = childNode(withName: "corazon") as! SKSpriteNode
-        player.position = CGPoint(x: -800, y: -370)
         player.isPaused = true
         
         for child in self.children{
@@ -38,19 +40,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        
-        
     }
-    
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        let touch = touches.first! as UITouch
        let location = touch.location(in: self)
        sceneTouched(touchLocation: location)
-       player.isPaused = false
-       
-      
+       player.isPaused = false   
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,6 +58,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
+        if lastUpdatedTime > 0 {
+            dt = currentTime - lastUpdatedTime
+        }else{
+            dt = 0
+        }
+        lastUpdatedTime = currentTime
+        
+        if (player.position - lastTouchLocation).length() < playerPixelPerSecond * CGFloat(dt) {
+            velocityPlayer = CGPoint.zero
+            player.isPaused = true
+        }else {
+             moveSprite(sprite: player, velocity: velocityPlayer)
+        }
+        rotatePlayer(sprite: player, direction: velocityPlayer)
+        updateZombie()
         updateCamera()
         cantidadCorazones = self["corazon"]
         nodosLeft = cantidadCorazones.count
@@ -69,35 +80,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func updatePosition(sprite: SKSpriteNode, target: CGPoint, speed: CGFloat){
+    
+    func moveSprite(sprite:SKSpriteNode, velocity:CGPoint){
         
-        
-        let currentPosition = player.position
-        
-        let angle = CGFloat.pi + atan2(currentPosition.y - target.y,
-                                       currentPosition.x - target.x)
-        let rotateAction = SKAction.rotate(toAngle: angle + (CGFloat.pi*0.5),
-                                           duration: 0)
-        sprite.run(rotateAction)
-        
-        
-        let velocityX = speed * cos(angle)
-        let velocityY = speed * sin(angle)
-            
-        
-        let newVelocity = CGVector(dx: velocityX, dy: velocityY)
-        sprite.physicsBody?.velocity = newVelocity
-        
-        updateCamera()
-        
+        // Espacio es igual a Velocidad por Tiempo
+        let cantidad = velocity * CGFloat(dt)
+        sprite.position += cantidad
     }
     
-       func sceneTouched(touchLocation: CGPoint){
-           
+    func playerToLocation(location: CGPoint) {
+        
+        //  Cantidad de movimiento que debemos darle al player para llegar donde hemos tocado
+        let offset = location - player.position
+        
+        
+        // Vector unitario de movimiento
+        let direccion = offset.normalized()
+        velocityPlayer = direccion * playerPixelPerSecond
+    }
+    
+    func sceneTouched(touchLocation: CGPoint){
+        
         lastTouchLocation = touchLocation
-        updatePosition(sprite: player, target: lastTouchLocation, speed: playerSpeed)
-        updateZombie()
-       }
+        playerToLocation(location: touchLocation)
+    }
+    
+    
+    func rotatePlayer(sprite: SKSpriteNode, direction: CGPoint){
+        
+        
+        let angle = atan2(direction.y, direction.x)
+        let rotationSprite = SKAction.rotate(toAngle: angle + CGFloat(Double.pi * 0.5), duration: 0)
+        sprite.run(rotationSprite)
+        
+       
+    }
     
     func updateZombie (){
         let targetPotition = player.position

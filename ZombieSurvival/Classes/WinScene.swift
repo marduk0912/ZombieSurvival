@@ -43,13 +43,13 @@ class WinScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-       guard let gameScene = GameScene2(fileNamed: "GameScene2") else {
-         fatalError("GameScene2 not found")
+       guard let gameScene = GameScene(fileNamed: "GameScene2") else {
+           fatalError("GameScene not found")
+         }
+          let transition = SKTransition.push(with: .down, duration: 1.0)
+          gameScene.scaleMode = .aspectFill
+          view?.presentScene(gameScene, transition: transition)
        }
-        let transition = SKTransition.push(with: .down, duration: 1.0)
-        gameScene.scaleMode = .aspectFill
-        view?.presentScene(gameScene, transition: transition)
-     }
     
 
 }
