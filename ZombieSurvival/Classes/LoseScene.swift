@@ -11,14 +11,16 @@ import SpriteKit
 class LoseScene: SKScene {
     
     var lose: Bool
+    var lvl = 0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
     
-    init(size: CGSize, lose: Bool){
+    init(size: CGSize, lose: Bool, lvl: Int){
         self.lose = lose
         super.init(size: size)
+        self.lvl = lvl
         scaleMode = .aspectFill
     }
     
@@ -43,7 +45,7 @@ class LoseScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-       guard let gameScene = GameScene(fileNamed: "GameScene") else {
+        guard let gameScene = SKScene(fileNamed: "GameScene\(lvl)") else {
          fatalError("GameScene not found")
        }
         let transition = SKTransition.push(with: .down, duration: 1.0)

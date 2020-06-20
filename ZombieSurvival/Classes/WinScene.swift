@@ -11,14 +11,16 @@ import SpriteKit
 class WinScene: SKScene {
     
     var win: Bool
+    var lvl = 0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
     
-    init(size: CGSize, win: Bool){
+    init(size: CGSize, win: Bool, lvl: Int){
         self.win = win
         super.init(size: size)
+        self.lvl = lvl
         scaleMode = .aspectFill
     }
     
@@ -43,7 +45,7 @@ class WinScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-       guard let gameScene = GameScene(fileNamed: "GameScene2") else {
+        guard let gameScene = SKScene(fileNamed: "GameScene\(lvl)") else {
            fatalError("GameScene not found")
          }
           let transition = SKTransition.push(with: .down, duration: 1.0)

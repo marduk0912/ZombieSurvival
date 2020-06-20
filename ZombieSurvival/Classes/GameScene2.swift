@@ -23,29 +23,47 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     var dt: TimeInterval = 0
     let playerPixelPerSecond: CGFloat = 200.0
     var velocityPlayer = CGPoint.zero
+    var level = 2
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        player = childNode(withName: "player") as! SKSpriteNode
+        corazon = childNode(withName: "corazon") as! SKSpriteNode
+        camera = (childNode(withName: "camera") as! SKCameraNode)
+        for child in self.children{
+                   if child.name == "zombie"{
+                       if let child = child as? SKSpriteNode{
+                           zombies.append(child)
+                       }
+                   }
+               }
+       
+        addObserver()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
-        
+        player.isPaused = true
         player = childNode(withName: "player") as! SKSpriteNode
         corazon = childNode(withName: "corazon") as! SKSpriteNode
-        player.isPaused = true
-        
         for child in self.children{
             if child.name == "zombie"{
                 if let child = child as? SKSpriteNode{
                     zombies.append(child)
                 }
             }
-        }
-        
-        
+        } 
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        let touch = touches.first! as UITouch
        let location = touch.location(in: self)
        sceneTouched(touchLocation: location)
+       self.isPaused = false
        player.isPaused = false
     }
     
@@ -158,13 +176,13 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     
     
     func gameOver(_ lose: Bool) {
-      let loseScene = LoseScene(size: size, lose: lose)
+        let loseScene = LoseScene(size: size, lose: lose, lvl: level)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(loseScene, transition: transition)
     }
     
     func youWin(_ win: Bool) {
-      let winScene = WinScene(size: size, win: win)
+      let winScene = WinScene(size: size, win: win, lvl: level+1)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(winScene, transition: transition)
     }
@@ -172,9 +190,70 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     func newScene(){
         if nodosLeft == 0 {
             youWin(true)
+        
         }
     }
     
     
 }
+
+extension GameScene2{
+    @objc func applicationDidBecomeAvctive(){
+        self.isPaused = true
+        print("* applicationDidBecomeActive")
+    }
+    @objc func applicationWillResignActive(){
+        self.isPaused = true
+        saveGame()
+        print("* applicationWillResignActive")
+    }
+    @objc func applicationDidEnterBackground(){
+        self.isPaused = true
+        print("* applicationDidEnterBackground")
+    }
+   
+    
+    
+    func addObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeAvctive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
+    }
+}
+
+extension GameScene2{
+    
+    func saveGame(){
+        //  Recupera el directorio de la Biblioteca de la aplicación interactuando con el sistema de archivos usando el FileManager
+        let fileManager = FileManager.default
+        guard let directory = fileManager.urls(for: .libraryDirectory, in: .userDomainMask).first
+            else{return}
+        // Configura la URL del directorio para el nuevo archivo
+        let saveURL = directory.appendingPathComponent("SavedGames")
+        // La creación de directorios puede fallar por varias razones. Adjuntando esto en un intento ... catch le permite capturar y mostrar cualquier error que ocurra. Esto no fallará si el directorio ya existe.
+        do{
+            try fileManager.createDirectory(atPath: saveURL.path, withIntermediateDirectories: true, attributes: nil)
+        }catch let error as NSError{
+            fatalError("Failed to create directory: \(error.debugDescription)")
+        }
+        // Luego configura la ruta final para el nuevo archivo. Imprimir el nombre del archivo es útil para que luego pueda ubicarlo en el sistema de archivos.
+        let fileURL = saveURL.appendingPathComponent("saved-game")
+        print("* saving: \(fileURL.path)")
+        // Finalmente, archivas la escena en el archivo. NSKeyedArchiver comienza en el nivel de escena y serializa cada nodo en el gráfico de objetos de escena.
+        do{
+        let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
+        try data.write(to: fileURL)
+        }catch{print("Couldn't write file")}
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(player, forKey: "player")
+        coder.encode(zombies, forKey: "zombies")
+        coder.encode(corazon, forKey: "corazon")
+        super.encode(with: coder)
+    }
+   
+}
+
 
