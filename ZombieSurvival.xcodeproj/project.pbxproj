@@ -13,7 +13,6 @@
 		188ECE2E248AFD5C0087938D /* VerticalWall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 188ECE2D248AFD5C0087938D /* VerticalWall.sks */; };
 		188ECE30248AFEEE0087938D /* HorizontalWall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 188ECE2F248AFEEE0087938D /* HorizontalWall.sks */; };
 		188ECE32248B02B90087938D /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ECE31248B02B90087938D /* WinScene.swift */; };
-		18900E53249D805E00D5F198 /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18900E52249D805E00D5F198 /* SaveLoad.swift */; };
 		189A7647249E62D90018962A /* GameScene3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 189A7646249E62D90018962A /* GameScene3.sks */; };
 		189A7649249E676E0018962A /* GameScene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A7648249E676E0018962A /* GameScene3.swift */; };
 		189E461E2492D46700654825 /* Box.sks in Resources */ = {isa = PBXBuildFile; fileRef = 189E461D2492D46700654825 /* Box.sks */; };
@@ -34,7 +33,6 @@
 		188ECE2D248AFD5C0087938D /* VerticalWall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = VerticalWall.sks; sourceTree = "<group>"; };
 		188ECE2F248AFEEE0087938D /* HorizontalWall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HorizontalWall.sks; sourceTree = "<group>"; };
 		188ECE31248B02B90087938D /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
-		18900E52249D805E00D5F198 /* SaveLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
 		189A7646249E62D90018962A /* GameScene3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene3.sks; sourceTree = "<group>"; };
 		189A7648249E676E0018962A /* GameScene3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene3.swift; sourceTree = "<group>"; };
 		189E461D2492D46700654825 /* Box.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Box.sks; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				189A7648249E676E0018962A /* GameScene3.swift */,
 				188BD27B24884D3F00F3B5DA /* LoseScene.swift */,
 				188ECE31248B02B90087938D /* WinScene.swift */,
-				18900E52249D805E00D5F198 /* SaveLoad.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -196,7 +193,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18900E53249D805E00D5F198 /* SaveLoad.swift in Sources */,
 				18CDAC8F2481C411000D7B32 /* GameScene1.swift in Sources */,
 				18CDACA12481D023000D7B32 /* MathUtils.swift in Sources */,
 				189A7649249E676E0018962A /* GameScene3.swift in Sources */,
