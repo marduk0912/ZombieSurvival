@@ -36,7 +36,7 @@ class WinScene: SKScene {
            loseLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5)
            addChild(loseLabel)
 
-           let label = SKLabelNode(text: "Press anywhere to play again!")
+           let label = SKLabelNode(text: "Press anywhere to play level\(lvl)")
            label.fontName = "AvenirNext-Bold"
            label.fontSize = 55
            label.fontColor = .white

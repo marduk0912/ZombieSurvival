@@ -48,6 +48,7 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
+        self.isPaused = false
         player.isPaused = true
         player = childNode(withName: "player") as! SKSpriteNode
         corazon = childNode(withName: "corazon") as! SKSpriteNode
@@ -176,7 +177,7 @@ class GameScene3: SKScene, SKPhysicsContactDelegate {
     
     
     func gameOver(_ lose: Bool) {
-        let loseScene = LoseScene(size: size, lose: lose, lvl: level)
+      let loseScene = LoseScene(size: size, lose: lose, lvl: level)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(loseScene, transition: transition)
     }
