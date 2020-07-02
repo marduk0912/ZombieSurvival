@@ -5,18 +5,24 @@
 //  Created by Fernando on 29/05/2020.
 //  Copyright © 2020 Fernando Salvador. All rights reserved.
 //
+// 
 
 import UIKit
 import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
+        let sview = view as! SKView
+            
+        let scene = MainMenu(size: CGSize(width: 2048, height: 1024))
+        scene.scaleMode = .aspectFill
+        sview.presentScene(scene)
+            
+          /*  // Load the SKScene from 'GameScene.sks'
             if let scene = GameScene1.loadGame() ?? SKScene(fileNamed: "GameScene1"){
             
                 // Set the scale mode to scale to fit the window
@@ -26,12 +32,12 @@ class GameViewController: UIViewController {
                 // Present the scene
                 view.presentScene(scene)
             
-            }
-            view.ignoresSiblingOrder = true
+            }*/
+        sview.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+        sview.showsFPS = true
+        sview.showsNodeCount = true
+        
     }
 
     override var shouldAutorotate: Bool {
@@ -45,7 +51,6 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-
     override var prefersStatusBarHidden: Bool {
         return true
     }

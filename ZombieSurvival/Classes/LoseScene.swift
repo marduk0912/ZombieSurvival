@@ -36,7 +36,7 @@ class LoseScene: SKScene {
            loseLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5)
            addChild(loseLabel)
 
-           let label = SKLabelNode(text: "Press anywhere to play again level\(lvl)")
+           let label = SKLabelNode(text: "Press anywhere to play again level \(lvl)")
            label.fontName = "AvenirNext-Bold"
            label.fontSize = 55
            label.fontColor = .white

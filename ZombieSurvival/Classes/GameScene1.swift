@@ -23,7 +23,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
     var dt: TimeInterval = 0
     let playerPixelPerSecond: CGFloat = 200.0
     var velocityPlayer = CGPoint.zero
-    var level = 1
+    static var level = 1
     
    
     required init?(coder aDecoder: NSCoder) {
@@ -179,19 +179,20 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
     
     
     func gameOver(_ lose: Bool) {
-      let loseScene = LoseScene(size: size, lose: lose, lvl: level)
+        let loseScene = LoseScene(size: size, lose: lose, lvl: GameScene1.level)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(loseScene, transition: transition)
     }
     
     func youWin(_ win: Bool) {
-      let winScene = WinScene(size: size, win: win, lvl: level+1)
+        let winScene = WinScene(size: size, win: win, lvl: GameScene1.level+1)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(winScene, transition: transition)
     }
     
     func newScene(){
         if nodosLeft == 0 {
+           
             youWin(true)
         }
     }
@@ -203,11 +204,11 @@ extension GameScene1{
         print("* applicationDidBecomeActive")
     }
     @objc func applicationWillResignActive(){
-        saveGame()
         self.isPaused = true
         print("* applicationWillResignActive")
     }
     @objc func applicationDidEnterBackground(){
+       // saveGame()
         print("* applicationDidEnterBackground")
         self.isPaused = true
     }

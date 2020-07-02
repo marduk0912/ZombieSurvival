@@ -23,7 +23,8 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     var dt: TimeInterval = 0
     let playerPixelPerSecond: CGFloat = 200.0
     var velocityPlayer = CGPoint.zero
-    var level = 2
+    var level = GameScene1.level+1
+    var loseLevel = Int()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,7 +38,8 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
                        }
                    }
                }
-       
+        if let loseLevel = userData?.object(forKey: "loseLevel") as? Int {
+        self.loseLevel = loseLevel }
         addObserver()
     }
     
@@ -47,6 +49,7 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        saveGame()
         physicsWorld.contactDelegate = self
         player.isPaused = true
         player = childNode(withName: "player") as! SKSpriteNode
@@ -95,7 +98,6 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         cantidadCorazones = self["corazon"]
         nodosLeft = cantidadCorazones.count
         newScene()
-        
     }
     
     
@@ -167,7 +169,6 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         }
         
         if firstBody.categoryBitMask == player.physicsBody?.categoryBitMask && secondBody.categoryBitMask == corazon.physicsBody?.categoryBitMask{
-           
                 secondBody.node?.removeFromParent()
         }else if secondBody.categoryBitMask == zombies[0].physicsBody?.categoryBitMask{
             gameOver(true)
@@ -176,13 +177,13 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     
     
     func gameOver(_ lose: Bool) {
-        let loseScene = LoseScene(size: size, lose: lose, lvl: level)
+      let loseScene = LoseScene(size: size, lose: lose, lvl: loseLevel)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(loseScene, transition: transition)
     }
     
     func youWin(_ win: Bool) {
-      let winScene = WinScene(size: size, win: win, lvl: level+1)
+      let winScene = WinScene(size: size, win: win, lvl: loseLevel+1)
       let transition = SKTransition.push(with: .down, duration: 1.0)
       view?.presentScene(winScene, transition: transition)
     }
@@ -190,7 +191,6 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     func newScene(){
         if nodosLeft == 0 {
             youWin(true)
-        
         }
     }
     
@@ -204,7 +204,6 @@ extension GameScene2{
     }
     @objc func applicationWillResignActive(){
         self.isPaused = true
-        saveGame()
         print("* applicationWillResignActive")
     }
     @objc func applicationDidEnterBackground(){
