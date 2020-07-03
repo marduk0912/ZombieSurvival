@@ -52,15 +52,6 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         saveGame()
         physicsWorld.contactDelegate = self
         player.isPaused = true
-        player = childNode(withName: "player") as! SKSpriteNode
-        corazon = childNode(withName: "corazon") as! SKSpriteNode
-        for child in self.children{
-            if child.name == "zombie"{
-                if let child = child as? SKSpriteNode{
-                    zombies.append(child)
-                }
-            }
-        } 
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        let touch = touches.first! as UITouch
@@ -98,6 +89,7 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
         cantidadCorazones = self["corazon"]
         nodosLeft = cantidadCorazones.count
         newScene()
+        print("quedan \(nodosLeft) corazones")
     }
     
     
