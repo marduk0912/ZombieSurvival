@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		188BD27C24884D3F00F3B5DA /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BD27B24884D3F00F3B5DA /* LoseScene.swift */; };
-		188ECE28248AF9CC0087938D /* GameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ECE27248AF9CC0087938D /* GameScene2.swift */; };
+		188ECE28248AF9CC0087938D /* GameScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ECE27248AF9CC0087938D /* GameScene1.swift */; };
 		188ECE2A248AFA4D0087938D /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 188ECE29248AFA4D0087938D /* GameScene2.sks */; };
 		188ECE2E248AFD5C0087938D /* VerticalWall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 188ECE2D248AFD5C0087938D /* VerticalWall.sks */; };
 		188ECE30248AFEEE0087938D /* HorizontalWall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 188ECE2F248AFEEE0087938D /* HorizontalWall.sks */; };
@@ -25,17 +25,17 @@
 		18BA24DD24A418A6000D247F /* GameScene10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18BA24DC24A418A6000D247F /* GameScene10.sks */; };
 		18CDAC892481C411000D7B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAC882481C411000D7B32 /* AppDelegate.swift */; };
 		18CDAC8B2481C411000D7B32 /* GameScene1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC8A2481C411000D7B32 /* GameScene1.sks */; };
-		18CDAC8F2481C411000D7B32 /* GameScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAC8E2481C411000D7B32 /* GameScene1.swift */; };
 		18CDAC912481C411000D7B32 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAC902481C411000D7B32 /* GameViewController.swift */; };
 		18CDAC942481C411000D7B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC922481C411000D7B32 /* Main.storyboard */; };
 		18CDAC962481C425000D7B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC952481C425000D7B32 /* Assets.xcassets */; };
 		18CDAC992481C426000D7B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CDAC972481C426000D7B32 /* LaunchScreen.storyboard */; };
 		18CDACA12481D023000D7B32 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDACA02481D023000D7B32 /* MathUtils.swift */; };
+		8B59556F7C532D8BA27E0499 /* Pods_ZombieSurvival.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E30AFB76A43EDF1DC4D545A /* Pods_ZombieSurvival.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		188BD27B24884D3F00F3B5DA /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
-		188ECE27248AF9CC0087938D /* GameScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene2.swift; sourceTree = "<group>"; };
+		188ECE27248AF9CC0087938D /* GameScene1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene1.swift; sourceTree = "<group>"; };
 		188ECE29248AFA4D0087938D /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
 		188ECE2D248AFD5C0087938D /* VerticalWall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = VerticalWall.sks; sourceTree = "<group>"; };
 		188ECE2F248AFEEE0087938D /* HorizontalWall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HorizontalWall.sks; sourceTree = "<group>"; };
@@ -53,13 +53,15 @@
 		18CDAC852481C411000D7B32 /* ZombieSurvival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieSurvival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CDAC882481C411000D7B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18CDAC8A2481C411000D7B32 /* GameScene1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene1.sks; sourceTree = "<group>"; };
-		18CDAC8E2481C411000D7B32 /* GameScene1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene1.swift; sourceTree = "<group>"; };
 		18CDAC902481C411000D7B32 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		18CDAC932481C411000D7B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18CDAC952481C425000D7B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18CDAC982481C426000D7B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18CDAC9A2481C426000D7B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18CDACA02481D023000D7B32 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		41BF1B12FD6C6C06F0CA4F2E /* Pods-ZombieSurvival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZombieSurvival.debug.xcconfig"; path = "Target Support Files/Pods-ZombieSurvival/Pods-ZombieSurvival.debug.xcconfig"; sourceTree = "<group>"; };
+		5E55DE3130AAF499F4FDC3B7 /* Pods-ZombieSurvival.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZombieSurvival.release.xcconfig"; path = "Target Support Files/Pods-ZombieSurvival/Pods-ZombieSurvival.release.xcconfig"; sourceTree = "<group>"; };
+		9E30AFB76A43EDF1DC4D545A /* Pods_ZombieSurvival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZombieSurvival.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +69,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B59556F7C532D8BA27E0499 /* Pods_ZombieSurvival.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022C6C4AF40833D3FBB9FB39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41BF1B12FD6C6C06F0CA4F2E /* Pods-ZombieSurvival.debug.xcconfig */,
+				5E55DE3130AAF499F4FDC3B7 /* Pods-ZombieSurvival.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		188ECE2B248AFA620087938D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				189F5AF724A161E400289776 /* MainMenu.swift */,
-				18CDAC8E2481C411000D7B32 /* GameScene1.swift */,
-				188ECE27248AF9CC0087938D /* GameScene2.swift */,
+				188ECE27248AF9CC0087938D /* GameScene1.swift */,
 				188BD27B24884D3F00F3B5DA /* LoseScene.swift */,
 				188ECE31248B02B90087938D /* WinScene.swift */,
 			);
@@ -110,6 +122,8 @@
 			children = (
 				18CDAC872481C411000D7B32 /* ZombieSurvival */,
 				18CDAC862481C411000D7B32 /* Products */,
+				022C6C4AF40833D3FBB9FB39 /* Pods */,
+				5368E0D0ADF77ED819D48A27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +151,14 @@
 			path = ZombieSurvival;
 			sourceTree = "<group>";
 		};
+		5368E0D0ADF77ED819D48A27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E30AFB76A43EDF1DC4D545A /* Pods_ZombieSurvival.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18CDAC9D2481C426000D7B32 /* Build configuration list for PBXNativeTarget "ZombieSurvival" */;
 			buildPhases = (
+				DE03CB1071670938ABBF9A4B /* [CP] Check Pods Manifest.lock */,
 				18CDAC812481C411000D7B32 /* Sources */,
 				18CDAC822481C411000D7B32 /* Frameworks */,
 				18CDAC832481C411000D7B32 /* Resources */,
+				86999680E569FD4D3547E291 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,17 +240,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		86999680E569FD4D3547E291 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZombieSurvival/Pods-ZombieSurvival-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZombieSurvival/Pods-ZombieSurvival-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZombieSurvival/Pods-ZombieSurvival-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE03CB1071670938ABBF9A4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZombieSurvival-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18CDAC812481C411000D7B32 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18CDAC8F2481C411000D7B32 /* GameScene1.swift in Sources */,
 				189F5AF824A161E400289776 /* MainMenu.swift in Sources */,
 				18CDACA12481D023000D7B32 /* MathUtils.swift in Sources */,
 				18CDAC912481C411000D7B32 /* GameViewController.swift in Sources */,
 				188ECE32248B02B90087938D /* WinScene.swift in Sources */,
-				188ECE28248AF9CC0087938D /* GameScene2.swift in Sources */,
+				188ECE28248AF9CC0087938D /* GameScene1.swift in Sources */,
 				18CDAC892481C411000D7B32 /* AppDelegate.swift in Sources */,
 				188BD27C24884D3F00F3B5DA /* LoseScene.swift in Sources */,
 			);
@@ -370,6 +435,7 @@
 		};
 		18CDAC9E2481C426000D7B32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41BF1B12FD6C6C06F0CA4F2E /* Pods-ZombieSurvival.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -388,6 +454,7 @@
 		};
 		18CDAC9F2481C426000D7B32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E55DE3130AAF499F4FDC3B7 /* Pods-ZombieSurvival.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

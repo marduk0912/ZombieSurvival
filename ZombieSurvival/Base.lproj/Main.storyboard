@@ -14,13 +14,31 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-EQ-AoI" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="364" width="896" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="elk-Gg-om7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="hPa-hp-0PV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hNK-EQ-AoI" secondAttribute="trailing" id="6zT-rx-wpX"/>
+                            <constraint firstItem="hNK-EQ-AoI" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="Q64-3T-ft4"/>
+                            <constraint firstAttribute="bottom" secondItem="hNK-EQ-AoI" secondAttribute="bottom" id="jSd-Tv-bWp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="banner" destination="hNK-EQ-AoI" id="ury-vj-ymd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264" y="-207"/>
+            <point key="canvasLocation" x="300" y="-526"/>
         </scene>
     </scenes>
 </document>

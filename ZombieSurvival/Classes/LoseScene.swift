@@ -27,6 +27,9 @@ class LoseScene: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor(white: 0.3, alpha: 1)
         
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showBanner"), object: nil)
+        
+        
         // Set up labels
            let text = lose ? "You Lost 😩": "Chau"
            let loseLabel = SKLabelNode(text: text)
@@ -45,10 +48,12 @@ class LoseScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "hideBanner"), object: nil)
         guard let gameScene = SKScene(fileNamed: "GameScene\(lvl)") else {
          fatalError("GameScene not found")
        }
-        let transition = SKTransition.push(with: .down, duration: 1.0)
+       
+        let transition = SKTransition.doorsOpenHorizontal(withDuration: 1.0)
         gameScene.scaleMode = .aspectFill
         view?.presentScene(gameScene, transition: transition)
      }
