@@ -42,6 +42,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
                 view.presentScene(scene)
             
             }*/
+        hideAdmodBanner()
         
         self.interstitial =  crateAndLoadInstertitial()
         NotificationCenter.default.addObserver(self, selector: #selector(showIntertitial), name: NSNotification.Name(rawValue: "showIntertitial"), object: nil)
@@ -69,6 +70,10 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        URLCache.shared.removeAllCachedResponses()
     }
     
     func crateAndLoadInstertitial() -> GADInterstitial {

@@ -13,37 +13,45 @@ class LoseScene: SKScene {
     var lose: Bool
     var lvl = 0
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
     
     init(size: CGSize, lose: Bool, lvl: Int){
         self.lose = lose
-        super.init(size: size)
+        super.init(size: CGSize(width: 2048, height: 1024))
         self.lvl = lvl
         scaleMode = .aspectFill
     }
     
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor(white: 0.3, alpha: 1)
+       
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showBanner"), object: nil)
         
+        // Background
+            let background = SKSpriteNode(imageNamed: "lose\(lvl)")
+            background.position = CGPoint(x: 0, y: 0)
+            background.zPosition = -10
+            background.scale(to: CGSize(width: 2048, height: 1024))
+            background.anchorPoint = CGPoint(x: 0.0, y: 0.0)
+            addChild(background)
         
         // Set up labels
            let text = lose ? "You Lost 😩": "Chau"
            let loseLabel = SKLabelNode(text: text)
-           loseLabel.fontName = "AvenirNext-Bold"
+           loseLabel.fontName = "Chalkduster"
            loseLabel.fontSize = 65
-           loseLabel.fontColor = .white
-           loseLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5)
+           loseLabel.fontColor = .red
+           loseLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5 - 90)
            addChild(loseLabel)
 
            let label = SKLabelNode(text: "Press anywhere to play again level \(lvl)")
-           label.fontName = "AvenirNext-Bold"
+           label.fontName = "Chalkduster"
            label.fontSize = 55
-           label.fontColor = .white
-           label.position = CGPoint(x: frame.midX, y: frame.midY)
+           label.fontColor = .red
+           label.position = CGPoint(x: frame.midX, y: frame.midY - 150)
            addChild(label)
     }
     

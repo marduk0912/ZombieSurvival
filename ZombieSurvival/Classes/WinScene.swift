@@ -20,34 +20,44 @@ class WinScene: SKScene {
     
     init(size: CGSize, win: Bool, lvl: Int){
         self.win = win
-        super.init(size: size)
+        super.init(size: CGSize(width: 2048, height: 1024))
         self.lvl = lvl
         scaleMode = .aspectFill
     }
     
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor(white: 0.3, alpha: 1)
+       
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showIntertitial"), object: nil)
+        
+        // Background
+            let background = SKSpriteNode(imageNamed: "win\(lvl - 1)")
+            background.position = CGPoint(x: 0, y: 0)
+            background.zPosition = -10
+            background.scale(to: CGSize(width: 2048, height: 1024))
+            background.anchorPoint = CGPoint(x: 0.0, y: 0.0)
+            
+            addChild(background)
         
         // Set up labels
            let text = win ? "You Won 😃" : "Hola"
            let loseLabel = SKLabelNode(text: text)
-           loseLabel.fontName = "AvenirNext-Bold"
+           loseLabel.fontName = "Chalkduster"
            loseLabel.fontSize = 65
-           loseLabel.fontColor = .white
-           loseLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5)
+           loseLabel.fontColor = .red
+           loseLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5 - 90)
            addChild(loseLabel)
 
            let label = SKLabelNode(text: "Press anywhere to play level \(lvl)")
-           label.fontName = "AvenirNext-Bold"
+           label.fontName = "Chalkduster"
            label.fontSize = 55
-           label.fontColor = .white
-           label.position = CGPoint(x: frame.midX, y: frame.midY)
+           label.fontColor = .red
+           label.position = CGPoint(x: frame.midX, y: frame.midY - 150)
            addChild(label)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         guard let gameScene = SKScene(fileNamed: "GameScene\(lvl)") else {
            fatalError("GameScene not found")
          }

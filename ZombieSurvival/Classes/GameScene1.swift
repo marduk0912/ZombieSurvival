@@ -18,12 +18,15 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
     var zombies: [SKSpriteNode] = []
     let zombieSpeed: CGFloat = 80.0
     var cantidadCorazones: [SKNode] = []
-    var nodosLeft: Int = 0
+    var nodosLeft = Int()
     var lastUpdatedTime: TimeInterval = 0
     var dt: TimeInterval = 0
     let playerPixelPerSecond: CGFloat = 200.0
     var velocityPlayer = CGPoint.zero
     var loseLevel = Int()
+    var corazonHud = Int()
+    let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,7 +41,10 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
                    }
                }
         if let loseLevel = userData?.object(forKey: "loseLevel") as? Int {
-        self.loseLevel = loseLevel }
+            self.loseLevel = loseLevel }
+        if let corazonHud = userData?.object(forKey: "corazonHud") as? Int{
+            self.corazonHud = corazonHud
+        }
         addObserver()
     }
     
@@ -47,9 +53,24 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        player.isPaused = true
         saveGame()
         physicsWorld.contactDelegate = self
-        player.isPaused = true
+        
+        scoreLabel.fontColor = .white
+        scoreLabel.fontSize = 50
+        scoreLabel.zPosition = 100
+        if let camera = camera{
+            scoreLabel.text = "❤️ = \(corazonHud)"
+            scoreLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+            if scene?.frame.size == CGSize(width: 2048, height: 1024){
+                scoreLabel.position = CGPoint(x: 0, y: scene!.frame.size.height/2 - 10)
+            }else if scene?.frame.size == CGSize(width: 2560, height: 1536){
+                 scoreLabel.fontSize = 70
+                 scoreLabel.position = CGPoint(x: 0, y: scene!.frame.size.height/2 - 80)
+            }
+            camera.addChild(scoreLabel)
+        }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        let touch = touches.first! as UITouch
@@ -88,7 +109,8 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
         updateCamera()
         cantidadCorazones = self["corazon"]
         nodosLeft = cantidadCorazones.count
-        newScene()
+     //   newScene()
+        
     }
     
     
@@ -161,11 +183,14 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.categoryBitMask == player.physicsBody?.categoryBitMask && secondBody.categoryBitMask == corazon.physicsBody?.categoryBitMask{
                 secondBody.node?.removeFromParent()
+                corazonHud = nodosLeft - 1
+                scoreLabel.text = "❤️ = \(corazonHud)"
+                newScene()
+            
         }else if secondBody.categoryBitMask == zombies[0].physicsBody?.categoryBitMask{
             gameOver(true)
             }
         }
-    
     
     func gameOver(_ lose: Bool) {
       let loseScene = LoseScene(size: size, lose: lose, lvl: loseLevel)
@@ -179,9 +204,17 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
       view?.presentScene(winScene, transition: transition)
     }
     
+    func finish(_ finish: Bool) {
+           let finishScene = FinishScene(size: size, finish: finish)
+           let transition = SKTransition.doorsCloseVertical(withDuration: 1.0)
+           view?.presentScene(finishScene, transition: transition)
+       }
+    
     func newScene(){
-        if nodosLeft == 0 {
+        if corazonHud == 0 && loseLevel < 15{
             youWin(true)
+        }else if corazonHud == 0 && loseLevel == 15{
+            finish(true)
         }
     }
     
