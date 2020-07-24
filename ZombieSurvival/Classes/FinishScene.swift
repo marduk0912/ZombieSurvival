@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 class FinishScene: SKScene {
     
@@ -29,7 +30,7 @@ class FinishScene: SKScene {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showIntertitial"), object: nil)
         
         // Background
-            let background = SKSpriteNode(imageNamed: "winning)")
+            let background = SKSpriteNode(imageNamed: "winning")
             background.position = CGPoint(x: 0, y: 0)
             background.zPosition = -10
             background.scale(to: CGSize(width: 2048, height: 1024))
@@ -43,20 +44,20 @@ class FinishScene: SKScene {
            finishLabel.fontName = "Chalkduster"
            finishLabel.fontSize = 65
            finishLabel.fontColor = .red
-           finishLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5 - 90)
+           finishLabel.position = CGPoint(x: frame.midX, y: frame.midY*1.5 - 20)
            addChild(finishLabel)
 
            let label = SKLabelNode(text: "Presiona la pantalla para comenzar nuevamente")
            label.fontName = "Chalkduster"
            label.fontSize = 55
            label.fontColor = .red
-           label.position = CGPoint(x: frame.midX, y: frame.midY - 150)
+           label.position = CGPoint(x: frame.midX, y: frame.midY - 200)
            addChild(label)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard let gameScene = SKScene(fileNamed: "MainMenu") else {
+        guard let gameScene = SKScene(fileNamed: "GameScene1") else {
            fatalError("GameScene not found")
          }
         let transition = SKTransition.doorsCloseHorizontal(withDuration: 0.8)
