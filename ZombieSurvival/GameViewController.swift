@@ -18,16 +18,16 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     @IBOutlet weak var banner: GADBannerView!
     
     var interstitial: GADInterstitial!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         let sview = view as! SKView
-            
+           
         let scene = MainMenu(size: CGSize(width: 2048, height: 1024))
         scene.scaleMode = .aspectFill
         sview.presentScene(scene)
         
-        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        banner.adUnitID = "ca-app-pub-9116099785246857/4599759483"
         banner.rootViewController = self
         banner.load(GADRequest())
             
@@ -52,10 +52,11 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         
         sview.ignoresSiblingOrder = true
             
-        sview.showsFPS = true
-        sview.showsNodeCount = true
+     //   sview.showsFPS = true
+     //   sview.showsNodeCount = true
         
     }
+    
 
     override var shouldAutorotate: Bool {
         return true
@@ -77,7 +78,7 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     func crateAndLoadInstertitial() -> GADInterstitial {
-        let instertitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let instertitial = GADInterstitial(adUnitID: "ca-app-pub-9116099785246857/1557502059")
         instertitial.delegate = self
         instertitial.load(GADRequest())
         return instertitial

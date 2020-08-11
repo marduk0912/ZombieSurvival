@@ -13,6 +13,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
     
     var player = SKSpriteNode()
     var corazon = SKSpriteNode()
+    
     let playerSpeed: CGFloat = 200.0
     var lastTouchLocation = CGPoint.zero
     var zombies: [SKSpriteNode] = []
@@ -33,6 +34,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
         player = childNode(withName: "player") as! SKSpriteNode
         corazon = childNode(withName: "corazon") as! SKSpriteNode
         camera = (childNode(withName: "camera") as! SKCameraNode)
+       
         for child in self.children{
                    if child.name == "zombie"{
                        if let child = child as? SKSpriteNode{
@@ -40,6 +42,8 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
                        }
                    }
                }
+        
+        
         if let loseLevel = userData?.object(forKey: "loseLevel") as? Int {
             self.loseLevel = loseLevel }
         if let corazonHud = userData?.object(forKey: "corazonHud") as? Int{
@@ -212,8 +216,10 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
     
     func newScene(){
         if corazonHud == 0 && loseLevel < 15{
+            zombies.removeAll()
             youWin(true)
         }else if corazonHud == 0 && loseLevel == 15{
+            zombies.removeAll()
             finish(true)
         }
     }

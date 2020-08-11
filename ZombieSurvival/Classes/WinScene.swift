@@ -13,6 +13,7 @@ class WinScene: SKScene {
     
     var win: Bool
     var lvl = 0
+    var levelPass = SKScene()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
@@ -29,6 +30,9 @@ class WinScene: SKScene {
        
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showIntertitial"), object: nil)
+        
+        levelPass = SKScene(fileNamed: "GameScene\(lvl - 1)")!
+        levelPass.view?.removeFromSuperview()
         
         // Background
             let background = SKSpriteNode(imageNamed: "win\(lvl - 1)")
@@ -57,14 +61,18 @@ class WinScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+       
         guard let gameScene = SKScene(fileNamed: "GameScene\(lvl)") else {
            fatalError("GameScene not found")
          }
+        
         let transition = SKTransition.doorsOpenHorizontal(withDuration: 1.0)
           gameScene.scaleMode = .aspectFill
           view?.presentScene(gameScene, transition: transition)
        }
     
-
 }
+
+
+
+
