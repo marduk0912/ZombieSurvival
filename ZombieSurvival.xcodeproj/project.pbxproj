@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		187996E824BD2B8F00AC3B7F /* LargeWall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 187996E724BD2B8F00AC3B7F /* LargeWall.sks */; };
 		187996EA24BD2CBE00AC3B7F /* BoxU.sks in Resources */ = {isa = PBXBuildFile; fileRef = 187996E924BD2CBE00AC3B7F /* BoxU.sks */; };
+		188A284C24E48C92000E692D /* _ghost_-_Two_Swords.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 188A284B24E48C92000E692D /* _ghost_-_Two_Swords.mp3 */; };
 		188BD27C24884D3F00F3B5DA /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BD27B24884D3F00F3B5DA /* LoseScene.swift */; };
 		188ECE28248AF9CC0087938D /* GameScene1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ECE27248AF9CC0087938D /* GameScene1.swift */; };
 		188ECE2A248AFA4D0087938D /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 188ECE29248AFA4D0087938D /* GameScene2.sks */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		187996E724BD2B8F00AC3B7F /* LargeWall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LargeWall.sks; sourceTree = "<group>"; };
 		187996E924BD2CBE00AC3B7F /* BoxU.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoxU.sks; sourceTree = "<group>"; };
+		188A284B24E48C92000E692D /* _ghost_-_Two_Swords.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "_ghost_-_Two_Swords.mp3"; sourceTree = "<group>"; };
 		188BD27B24884D3F00F3B5DA /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 		188ECE27248AF9CC0087938D /* GameScene1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene1.swift; sourceTree = "<group>"; };
 		188ECE29248AFA4D0087938D /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				18CDAC902481C411000D7B32 /* GameViewController.swift */,
 				18CDAC922481C411000D7B32 /* Main.storyboard */,
 				18CDAC952481C425000D7B32 /* Assets.xcassets */,
+				188A284B24E48C92000E692D /* _ghost_-_Two_Swords.mp3 */,
 				18CDAC972481C426000D7B32 /* LaunchScreen.storyboard */,
 				18CDAC9A2481C426000D7B32 /* Info.plist */,
 			);
@@ -255,6 +258,7 @@
 				18CDAC8B2481C411000D7B32 /* GameScene1.sks in Resources */,
 				18BA24D924A4187C000D247F /* GameScene8.sks in Resources */,
 				18B8B51B24BE70BB00EE8947 /* GameScene12.sks in Resources */,
+				188A284C24E48C92000E692D /* _ghost_-_Two_Swords.mp3 in Resources */,
 				188ECE2A248AFA4D0087938D /* GameScene2.sks in Resources */,
 				18BA24DD24A418A6000D247F /* GameScene10.sks in Resources */,
 				18B8B52124BE710600EE8947 /* GameScene15.sks in Resources */,

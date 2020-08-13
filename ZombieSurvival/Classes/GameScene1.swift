@@ -91,7 +91,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
        let location = touch.location(in: self)
        sceneTouched(touchLocation: location)
        rotatePlayer(sprite: player, direction: velocityPlayer)
-       updateZombie()
+       
        
     }
     
@@ -113,7 +113,7 @@ class GameScene1: SKScene, SKPhysicsContactDelegate {
         updateCamera()
         cantidadCorazones = self["corazon"]
         nodosLeft = cantidadCorazones.count
-     //   newScene()
+        updateZombie()
         
     }
     
